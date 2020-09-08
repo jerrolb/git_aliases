@@ -1,0 +1,30 @@
+[user]
+    name = jerrolb
+    email = jerrolb@gmail.com
+
+[diff]
+    tool = kdiff3
+
+[difftool]
+    #keepBackup = false
+    prompt = false
+    trustExitCode = false
+
+[difftool "kdiff3"]
+    path = /usr/bin/kdiff3
+
+[alias]
+    ch = checkout
+    co = commit
+    br = branch
+    st = status
+    sh = stash
+    fe = fetch
+    pu = pull
+    get = !git fe && git pu
+    last = log -1 HEAD
+    unstage = reset HEAD --
+    patch = !git co -a --amend --no-edit
+    clear = !git br | grep -v \"master\" | xargs git br -D
+    check = !git br && git st && git sh list
+    rom = !git fetch && git rebase origin/master
